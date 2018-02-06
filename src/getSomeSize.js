@@ -31,7 +31,7 @@ function getScrollTop() {
   */
 }
 
-function getViewportHeight() {
+function getViewportWidth() {
   /**
    * @dest 获得浏览器当前视口的高度
    * @source 源于NEXT中main.js的function getBodyHeight()

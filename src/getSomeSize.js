@@ -13,6 +13,18 @@ function getOffsetTop(el) {
   return curTop;
 }
 
+//getOffsetTop和left还有另外的方式：待细研究。
+function getOffsetOtherMethod (el) {
+  //来自《深入React技术栈》一书的P128
+  const html = el.ownerDocument.documentElement;
+  const box = el.getBoundingClientReact();
+  return {
+    top: box.top + window.pageYOffset - html.clientTop,
+    left: box.left + window.pageXOffset - html.clientLeft
+  }
+
+}
+
 function getScrollTop() { 
   /**
    * @dest 获得光标现在滚动到的位置距页面顶部的距离。

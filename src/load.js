@@ -28,3 +28,23 @@ function lazyLoadImages() {
     }
   }
 }
+
+function dynamicLoadScriptSrc(url) {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = url;
+  document.body.appendChild(script)
+}
+function dynamicLoadScriptString(code) {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  try {
+      script.appendChild(document.createTextNode(code));
+  } catch(ex) {
+      script.text = code;//For IE
+  }
+  document.body.appendChild(script);
+}
+//参考:《Javascirpt高级程序设计》P278
+
+//注意：动态加载的script并不能准确知道何时加载完成，所以html后面不能有变量依赖动态加载进来的script代码
